@@ -1,0 +1,25 @@
+tag v0.210.0
+commit 2592ddf0502cd4adfe886db893cccc866db3c60f
+published_at 2026-09-17T07:06:46Z
+author github-actions[bot]
+prerelease false
+asset ckb_v0.210.0_aarch64-apple-darwin-portable.zip 27581085 80477890543aa4425666dfe4f74022d4c8237cb9767052fef68e7a7e6b811ef2
+asset ckb_v0.210.0_aarch64-apple-darwin-portable.zip.asc 870 49f71bada2c3e227d88c0bf6d84784e3bfa01bf98c8624d008dc813897abc8f2
+asset ckb_v0.210.0_aarch64-apple-darwin.zip 27579157 0630cf11a43b2f515e96a28aa019ba7af3e207b421b0c6283e55fac807bb177b
+asset ckb_v0.210.0_aarch64-apple-darwin.zip.asc 870 bcc7a253285a6077e9f877090a07e02f8f8ed9ac34924a80f7b8abccaac9f1b9
+asset ckb_v0.210.0_aarch64-unknown-linux-gnu.tar.gz 32907979 dad07124d695c3e803c1ce3998f98932e94a6884c39346ab003747b3825c6bfe
+asset ckb_v0.210.0_aarch64-unknown-linux-gnu.tar.gz.asc 833 0149a9fb5b5de160816fe1653e1880a46ad00843364135d0d778971e80e8a84b
+asset ckb_v0.210.0_x86_64-apple-darwin-portable.zip 28839983 8b35c16405369afc486d956eed1cae573d3dd8f8d3da55e6f446ed4d9b7136f1
+asset ckb_v0.210.0_x86_64-apple-darwin-portable.zip.asc 870 54d50c236fa7a266e24408cbaa8341b676ed60513d23df498f78f83427768a53
+asset ckb_v0.210.0_x86_64-apple-darwin.zip 28842380 27881738a0d54acf11c68f23d66944c474612c52541906bf9a2d11e0966fac3b
+asset ckb_v0.210.0_x86_64-apple-darwin.zip.asc 870 bc7d67d9f0b995e832d25f533ca793e3228e90d10baceee69bff7b5ea71ed526
+asset ckb_v0.210.0_x86_64-pc-windows-msvc.zip 27414343 a4f7300e5ed1753ab38fc9a9c234a3134589dc18ea66716acdd2b1d0474c7b83
+asset ckb_v0.210.0_x86_64-pc-windows-msvc.zip.asc 833 5482f180bca313862e887fb68320a5f19c5d16ca032db74e4c9a85e7b28f5e30
+asset ckb_v0.210.0_x86_64-unknown-centos-gnu-portable.tar.gz 32727123 72fe7c9bbe8fe38e08edc941f328b4b29ae38fc88d145216cd3603b0e906895c
+asset ckb_v0.210.0_x86_64-unknown-centos-gnu-portable.tar.gz.asc 833 9176d7a97b08e007004f143c19849ae47f892494c948b1802eba2a8638f087a6
+asset ckb_v0.210.0_x86_64-unknown-centos-gnu.tar.gz 32771626 be945fe642311ab4c9657a72ba872505009a236e893db7c17d19a75b18893167
+asset ckb_v0.210.0_x86_64-unknown-centos-gnu.tar.gz.asc 833 9e550dd58c2f97dbb51f6c95b15332515518feb79eff244aeebb15519eb0f6f9
+asset ckb_v0.210.0_x86_64-unknown-linux-gnu-portable.tar.gz 32870894 f7ea14476229883153eaef2f96aa3ae9e67c6f7254fe642aa06014cc6333d017
+asset ckb_v0.210.0_x86_64-unknown-linux-gnu-portable.tar.gz.asc 833 e42cd0fa4d21bb8a42ebad9037fb71daba76519a6e21541e6021a83c253903e9
+asset ckb_v0.210.0_x86_64-unknown-linux-gnu.tar.gz 32918316 68a94c191109bae172f8dcb71828dbdf0383e2c314e0658743db217472b27bdf
+asset ckb_v0.210.0_x86_64-unknown-linux-gnu.tar.gz.asc 833 cc81bd13b73f38152b308d7cd1e48eaaa7dc5b4b8c840c1bb37b2443376ce403

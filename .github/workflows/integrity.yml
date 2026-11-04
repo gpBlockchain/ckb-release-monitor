@@ -1,0 +1,49 @@
+name: ckb-release-integrity
+on:
+  schedule: [{ cron: "0 1 * * *" }]   # 09:00 Asia/Shanghai
+  workflow_dispatch:
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+concurrency: { group: integrity, cancel-in-progress: false }
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      GH_TOKEN: ${{ github.token }}
+      MONITOR_DAYS: "183"
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Verify releases
+        id: check
+        run: ./scripts/check.sh
+      - name: Open PR for new baselines (manual review, no auto-merge)
+        if: always() && hashFiles('out/new.txt') != '' && steps.check.outcome != 'cancelled'
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
+        with:
+          add-paths: baseline/*
+          branch: new-baseline
+          title: "New CKB release baseline"
+          labels: new-baseline
+          commit-message: "baseline: add new CKB release(s)"
+          body: |
+            New upstream release(s) detected. Before merging, cross-check hashes
+            (build from source / official signature / other channels). See README.
+      - name: Alert (Discord + issue)
+        if: failure() && hashFiles('out/alert.txt') != ''
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          run_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          if [ -n "${DISCORD_WEBHOOK:-}" ]; then
+            jq -n --arg c "⚠️ CKB release integrity alert: $(tr '\n' ' ' < out/alert.txt) $run_url" '{content:$c}' \
+              | curl -fsS -H 'Content-Type: application/json' -d @- "$DISCORD_WEBHOOK" || true
+          else echo "DISCORD_WEBHOOK not set; skipping Discord"; fi
+          for tag in $(awk '{print $2}' out/alert.txt | sort -u); do
+            title="Release integrity alert: $tag"
+            body="$(grep " $tag" out/alert.txt; cat out/$tag.diff 2>/dev/null; echo; echo "$run_url")"
+            n=$(gh issue list --state open --search "\"$title\" in:title" --json number -q '.[0].number')
+            if [ -n "$n" ]; then gh issue comment "$n" --body "$body"; else gh issue create --title "$title" --body "$body"; fi
+          done
