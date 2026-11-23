@@ -154,6 +154,27 @@ class MonitorTests(unittest.TestCase):
         self.assertFalse(self.baseline().exists())
 
 
+class CommittedBaselineTests(unittest.TestCase):
+    def test_committed_snapshots_have_valid_schema(self):
+        directory = Path(__file__).resolve().parents[1] / "baseline/docker"
+        files = sorted(directory.glob("*.json"))
+        self.assertTrue(files, "initial Docker snapshots must be committed")
+        for path in files:
+            with self.subTest(tag=path.stem):
+                data = json.loads(path.read_text())
+                self.assertIsNotNone(m.VERSION.fullmatch(path.stem))
+                self.assertEqual(data["tag"], path.stem)
+                self.assertEqual(data["repository"], "nervos/ckb")
+                self.assertIsNotNone(m.DIGEST.fullmatch(data["digest"]))
+                self.assertEqual(set(data["platforms"]), {"linux/amd64", "linux/arm64"})
+                for image in data["platforms"].values():
+                    self.assertIsNotNone(m.DIGEST.fullmatch(image["digest"]))
+                    m.descriptor(image["config"])
+                    self.assertTrue(image["layers"])
+                    for layer in image["layers"]:
+                        m.descriptor(layer)
+
+
 class TransportTests(unittest.TestCase):
     def registry(self):
         r = object.__new__(m.Registry)

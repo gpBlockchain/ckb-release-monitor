@@ -1,0 +1,82 @@
+{
+  "digest": "sha256:f83ee4c4fc61ddb9b069d33da0a3e336b2b2ff2f84ca519c95a1d8ab226acde4",
+  "platforms": {
+    "linux/amd64": {
+      "config": {
+        "digest": "sha256:2bf729983eedb14abc89c81437b55b19753d43e66d62afd064adbe065bc24fa2",
+        "mediaType": "application/vnd.docker.container.image.v1+json",
+        "size": 3643
+      },
+      "digest": "sha256:ba1cec99c23830b691399ef3516af69f6a0a055091e67cadc8640730ea3e4691",
+      "layers": [
+        {
+          "digest": "sha256:e573979f5081f39d8f12d1ebe77f347a662dbc42b84c785396daaeca6f9d0b6d",
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "size": 28583629
+        },
+        {
+          "digest": "sha256:99d6edbd4b3b9964bdcba297af6670663e9b9d5f345bfa2c491b3748d4884332",
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "size": 4339
+        },
+        {
+          "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "size": 32
+        },
+        {
+          "digest": "sha256:e039b8889aefa49026e66e6f1a72d79dee0152c0396297fa6cee4b970b57d064",
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "size": 22793447
+        },
+        {
+          "digest": "sha256:5351949cfeee0be27fff995015d66b58d1c144f048560d7add9640b6cb8345a0",
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "size": 143
+        }
+      ]
+    },
+    "linux/arm64": {
+      "config": {
+        "digest": "sha256:a50a25ec0ed0355c755b554b1603d18a6fc7eb52c92fdd27778c2523545d3165",
+        "mediaType": "application/vnd.docker.container.image.v1+json",
+        "size": 3750
+      },
+      "digest": "sha256:1a80f8d93cd9044a68116e8971e837ae6a17e6b3194b6978144bd67ae629c0fe",
+      "layers": [
+        {
+          "digest": "sha256:99267111abcc4caf5e9b6f06fd8b9ca7ae7bff04ce06b24ca352c6007daaa73e",
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "size": 27606623
+        },
+        {
+          "digest": "sha256:204dc9563101cee887fc6b0482be48c03f9d4d73523c6e736c11ea5434aed5eb",
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "size": 4358
+        },
+        {
+          "digest": "sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1",
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "size": 32
+        },
+        {
+          "digest": "sha256:a6a88a732bf8630833a0346cf795b1ae56e4c35e819625306b16dbb769535368",
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "size": 2017642
+        },
+        {
+          "digest": "sha256:b840b0b32cd046a15d47d6dcd2897f66b9053ffa693c7a8ef8d35704b7d8192d",
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "size": 22926489
+        },
+        {
+          "digest": "sha256:0e8e9aa0893ccf53a5f44f47abfe3206ae3a95ea7f689b8ed857ce68e449ffd0",
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "size": 142
+        }
+      ]
+    }
+  },
+  "repository": "nervos/ckb",
+  "tag": "v0.207.0"
+}
