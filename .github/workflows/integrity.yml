@@ -19,18 +19,28 @@ jobs:
       - name: Verify releases
         id: check
         run: ./scripts/check.sh
+      - name: Verify Docker Hub images
+        id: docker
+        if: always() && !cancelled()
+        run: python3 scripts/check-docker.py
+      - name: Check for baseline candidates
+        id: baselines
+        if: always() && !cancelled()
+        run: |
+          if [ -s out/new.txt ]; then echo "pending=true" >> "$GITHUB_OUTPUT"; fi
       - name: Open PR for new baselines (manual review, no auto-merge)
-        if: always() && hashFiles('out/new.txt') != '' && steps.check.outcome != 'cancelled'
+        if: always() && !cancelled() && steps.baselines.outputs.pending == 'true'
         uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e # v7.0.8
         with:
-          add-paths: baseline/*
+          add-paths: baseline/**
           branch: new-baseline
-          title: "New CKB release baseline"
+          title: "New CKB release / Docker baseline"
           labels: new-baseline
-          commit-message: "baseline: add new CKB release(s)"
+          commit-message: "baseline: add new CKB release / Docker image(s)"
           body: |
-            New upstream release(s) detected. Before merging, cross-check hashes
-            (build from source / official signature / other channels). See README.
+            New release(s) or Docker image(s) detected. Before merging, cross-check hashes
+            (build from source / official signature / other channels). For Docker, review
+            baseline/docker/*.json and confirm the platform image digests. See README.
       - name: Alert (Discord + issue)
         if: failure() && hashFiles('out/alert.txt') != ''
         env:
